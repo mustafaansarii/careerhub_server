@@ -71,6 +71,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'careerhub_backend.urls'
@@ -93,7 +95,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'careerhub_backend.wsgi.application'
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -139,7 +141,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Add static files settings
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# Remove or comment out the non-existent directory
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Add authentication settings
 AUTHENTICATION_BACKENDS = [
