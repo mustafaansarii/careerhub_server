@@ -30,13 +30,18 @@ ENVIRONMENT = os.getenv('ENVIRONMENT', 'local')
 # Security settings
 if ENVIRONMENT == 'production':
     DEBUG = False
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'careerhub-server.onrender.com',  # Add your domain here
+]
+
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
 else:
     DEBUG = True
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1','careerhub-server.onrender.com']
 
 # Secret Key
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-development-key')
