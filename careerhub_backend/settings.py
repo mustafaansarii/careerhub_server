@@ -30,7 +30,7 @@ ENVIRONMENT = os.getenv('ENVIRONMENT', 'local')
 # Security settings
 if ENVIRONMENT == 'production':
     DEBUG = False
-    ALLOWED_HOSTS = ['careerhub.mustafaaansaarii.com', 'www.careerhub.mustafaaansaarii.com']
+    ALLOWED_HOSTS = ['*']
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
